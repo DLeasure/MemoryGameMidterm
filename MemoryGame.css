@@ -10,13 +10,17 @@ body {
     margin-bottom: -34px;
 }
 
-p {
+.balloon {
     width: 25%;
     height: 200px;
     background-color: white;
     border: 3px solid black;
     margin: none;
     margin: 20px;
+    background-image: url("card-back.jfif");
+    background-image: 100%;
+    
+    
 }
 
 p:hover {
