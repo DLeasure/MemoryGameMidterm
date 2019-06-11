@@ -29,3 +29,6 @@ function randomizeCards() {
 }
 
 randomizeCards();
+
+
+
