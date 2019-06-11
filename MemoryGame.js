@@ -5,14 +5,12 @@ function randomizeCards() {
         let pokemonCard = document.getElementById(`${i}`);
         const pokemonArrayNum = Math.floor(Math.random() * (pokemon.length))
         const pokemonForThisCard = pokemon.splice(pokemonArrayNum, 1);
-        // console.log(pokemonForThisCard);
         switch(pokemonForThisCard[0]) {
             case "Squirtle":
                 pokemonCard.style.background = "url('squirtle.png')";
                 break;
             case "Scyther":
                 pokemonCard.style.background = "url('scyther.png')";
-                
                 break;
             case "Growlithe":
                 pokemonCard.style.background = "url('growlithe.png')";
@@ -27,9 +25,6 @@ function randomizeCards() {
                 pokemonCard.style.background = "url('bulbasaur.png')";
                 break;
         }
-
-        // pokemonCard.className += " " + pokemonForThisCard;
-        // console.log(pokemonCard.className);
     }
 }
 
