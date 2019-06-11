@@ -7,22 +7,22 @@ function randomizeCards() {
         const pokemonForThisCard = pokemon.splice(pokemonArrayNum, 1);
         switch(pokemonForThisCard) {
             case "squirtle":
-                pokemonCard.style.backgroundImage(url('squirtle.png'));
+                pokemonCard.style.background ="url('squirtle.png')";
                 break;
             case "scyther":
-                pokemonCard.style.backgroundImage(url('scyther.png'));
+                pokemonCard.style.background ="url('scyther.png');";
                 break;
             case "growlithe":
-                pokemonCard.style.backgroundImage(url('growlithe.png'));
+                pokemonCard.style.background ="url('growlithe.png)";
                 break;
             case "mewtwo":
-                pokemonCard.style.backgroundImage(url('mewtwo.png'));
+                pokemonCard.style.background ="url('mewtwo.png')";
                 break;
             case "onix":
-                pokemonCard.style.backgroundImage(url('onix.png'));
-                break;
+                pokemonCard.style.background ="url('onix.png')";
+               break;
             case "bulbasaur":
-                pokemonCard.style.backgroundImage(url('bulbasaur.png'));
+                pokemonCard.style.background ="url('bulbasaur.png)";
                 break;
         }
 
@@ -32,3 +32,6 @@ function randomizeCards() {
 }
 
 randomizeCards();
+
+
+

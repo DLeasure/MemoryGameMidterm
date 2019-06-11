@@ -95,5 +95,4 @@
 .back {
     transform: rotateY(180deg);
     background-size: 150px 200px;
-    background-image: url('bulbasaur.png');
 }
