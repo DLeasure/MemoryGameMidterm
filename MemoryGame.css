@@ -24,32 +24,26 @@
     
     .squirtle {
         background-image: url('squirtle.png');
-        background-size: cover;
     }
     
     .scyther {
         background-image: url('scyther.png');
-        background-size: cover;
     }
     
     .growlithe {
         background-image: url('growlithe.png');
-        background-size: cover;
     }
     
     .mewtwo {
         background-image: url('mewtwo.png');
-        background-size: cover;
     }
     
     .onix {
         background-image: url('onix.png');
-        background-size: cover;
     }
     
     .bulbasaur {
         background-image: url('bulbasaur.png');
-        background-size: cover;
     }
 
 /* entire container, keeps perspective */
@@ -57,8 +51,6 @@
 	perspective: 1000px;
   width: 145px;
         height: 200px;
-        background-color: white;
-        border: 3px solid black;
         margin: none;
         margin: 20px;
 }
@@ -102,5 +94,6 @@
 /* back, initially hidden pane */
 .back {
     transform: rotateY(180deg);
-    background-color: blue;
+    background-size: 150px 200px;
+    background-image: url('bulbasaur.png');
 }
