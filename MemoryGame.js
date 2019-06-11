@@ -5,29 +5,32 @@ function randomizeCards() {
         let pokemonCard = document.getElementById(`${i}`);
         const pokemonArrayNum = Math.floor(Math.random() * (pokemon.length))
         const pokemonForThisCard = pokemon.splice(pokemonArrayNum, 1);
-        switch(pokemonForThisCard) {
-            case "squirtle":
-                pokemonCard.style.background ="url('squirtle.png')";
+        switch(pokemonForThisCard[0]) {
+            case "Squirtle":
+                pokemonCard.style.background = "url('squirtle.png')";
+                pokemonCard.style.backgroundSize = "150px 200px";
                 break;
-            case "scyther":
-                pokemonCard.style.background ="url('scyther.png');";
+            case "Scyther":
+                pokemonCard.style.background = "url('scyther.png')";
+                pokemonCard.style.backgroundSize = "150px 200px";
                 break;
-            case "growlithe":
-                pokemonCard.style.background ="url('growlithe.png)";
+            case "Growlithe":
+                pokemonCard.style.background = "url('growlithe.png')";
+                pokemonCard.style.backgroundSize = "150px 200px";
                 break;
-            case "mewtwo":
-                pokemonCard.style.background ="url('mewtwo.png')";
+            case "Mewtwo":
+                pokemonCard.style.background = "url('mewtwo.png')";
+                pokemonCard.style.backgroundSize = "150px 200px";
                 break;
-            case "onix":
-                pokemonCard.style.background ="url('onix.png')";
-               break;
-            case "bulbasaur":
-                pokemonCard.style.background ="url('bulbasaur.png)";
+            case "Onix":
+                pokemonCard.style.background = "url('onix.png')";
+                pokemonCard.style.backgroundSize = "150px 200px";
+                break;
+            case "Bulbasaur":
+                pokemonCard.style.background = "url('bulbasaur.png')";
+                pokemonCard.style.backgroundSize = "150px 200px";
                 break;
         }
-
-        // pokemonCard.className += " " + pokemonForThisCard;
-        // console.log(pokemonCard.className);
     }
 }
 
