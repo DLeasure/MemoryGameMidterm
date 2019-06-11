@@ -1,4 +1,3 @@
-
 function changeText(box, text) {
     box.innerText = text;
 }
