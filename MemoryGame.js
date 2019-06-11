@@ -3,12 +3,14 @@ function changeText(box, text) {
     box.innerText = text;
 }
 
-const balloon = document.getElementsByClassName("balloon");
+const balloon = document.getElementsByClassName("card");
 
-function pop(balloon) {
-    balloon.style.backgroundColor = "red";
+function pop(card) {
+    card.style.backgroundColor = "red";
 }
 
 
 
-pop(balloon);
+
+
+pop(card);
