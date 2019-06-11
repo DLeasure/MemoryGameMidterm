@@ -1,3 +1,4 @@
+
 function randomizeCards() {
     let pokemon = ["Squirtle", "Squirtle", "Scyther", "Scyther", "Growlithe", "Growlithe", "Mewtwo", "Mewtwo", "Onix", "Onix", "Bulbasaur", "Bulbasaur"];
     for (i = 1; i <= 12; i++) {

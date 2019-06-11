@@ -1,31 +1,66 @@
-body {
-    margin: 0;
-    padding: 0;
-}
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url('background.jpg');
+        background-size: cover;
+        font-family: 'pokemon_hollownormal';
+    }
+    
+    @font-face {
+        font-family: 'pokemon_hollownormal';
+        src: url('pokemon_hollow-webfont.woff2') format('woff2'), url('pokemon_hollow-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    
+    .box {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: -34px;
+    }
 
-.box {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: -34px;
-}
-
-.card {
-    width: 25%;
-    height: 200px;
-    background-color: white;
-    border: 3px solid black;
-    margin: none;
-    margin: 20px;
-    
-    background-image: 100%;
     
     
-}
+    .squirtle {
+        background-image: url('squirtle.png');
+        background-size: cover;
+    }
+    
+    .scyther {
+        background-image: url('scyther.png');
+        background-size: cover;
+    }
+    
+    .growlithe {
+        background-image: url('growlithe.png');
+        background-size: cover;
+    }
+    
+    .mewtwo {
+        background-image: url('mewtwo.png');
+        background-size: cover;
+    }
+    
+    .onix {
+        background-image: url('onix.png');
+        background-size: cover;
+    }
+    
+    .bulbasaur {
+        background-image: url('bulbasaur.png');
+        background-size: cover;
+    }
 
 /* entire container, keeps perspective */
 .flip-container {
 	perspective: 1000px;
+  width: 145px;
+        height: 200px;
+        background-color: white;
+        border: 3px solid black;
+        margin: none;
+        margin: 20px;
 }
 
 /* flip the pane when clicked */
