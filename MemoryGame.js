@@ -1,4 +1,3 @@
-
 function randomizeCards() {
     let pokemon = ["Squirtle", "Squirtle", "Scyther", "Scyther", "Growlithe", "Growlithe", "Mewtwo", "Mewtwo", "Onix", "Onix", "Bulbasaur", "Bulbasaur"];
     for (i = 1; i <= 12; i++) {
@@ -28,7 +27,17 @@ function randomizeCards() {
     }
 }
 
+
+
 randomizeCards();
 
-
+function matchCards() {
+    let pokemonCardBox = document.querySelector("#box");
+    pokemonCardBox.addEventListener("click", function(event) {
+        const { currentTarget, target } = event;
+        // target.classList.toggle("flip");
+        console.log(target.classList);
+        
+    });
+};
 
