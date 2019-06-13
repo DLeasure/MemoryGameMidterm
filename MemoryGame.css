@@ -1,98 +1,49 @@
-    body {
-        margin: 0;
-        padding: 0;
-        background-image: url('background.jpg');
-        background-size: cover;
-        font-family: 'pokemon_hollownormal';
-    }
-    
-    @font-face {
-        font-family: 'pokemon_hollownormal';
-        src: url('pokemon_hollow-webfont.woff2') format('woff2'), url('pokemon_hollow-webfont.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-    
-    .box {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        margin-bottom: -34px;
-    }
 
-    
-    
-    .squirtle {
-        background-image: url('squirtle.png');
-    }
-    
-    .scyther {
-        background-image: url('scyther.png');
-    }
-    
-    .growlithe {
-        background-image: url('growlithe.png');
-    }
-    
-    .mewtwo {
-        background-image: url('mewtwo.png');
-    }
-    
-    .onix {
-        background-image: url('onix.png');
-    }
-    
-    .bulbasaur {
-        background-image: url('bulbasaur.png');
-    }
-
-/* entire container, keeps perspective */
-.flip-container {
-	perspective: 1000px;
-  width: 145px;
-        height: 200px;
-        margin: none;
-        margin: 20px;
-}
-
-/* flip the pane when clicked */
-.flip-container:active .flipper, .flip-container.onclick .flipper {
-		transform: rotateY(180deg);
-}
-
-.flip-container, .front, .back {
-	width: 150px;
+  
+  body {
+    height: 100%;
+    display: flex;
+    background: #060AB2;
+  }
+  
+  .memory-game {
+    width: 640px;
+    height: 640px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .memory-card {
+    width: 150px;
     height: 200px;
-    margin: 20px;
-}
-
-/* flip speed goes here */
-.flipper {
-	transition: 0.5s;
-	transform-style: preserve-3d;
-
+    margin: 5px;
     position: relative;
-    margin: -20px;
-}
-
-/* hide back of pane during swap */
-.front, .back {
-	backface-visibility: hidden;
-
-	position: absolute;
-}
-
-/* front pane, placed above back */
-.front {
-    z-index: 2;
-	/* for firefox 31 */
-    transform: rotateY(0deg);
-    background-image: url("card-back.jfif");
-    background-size: 150px 200px;
-}
-
-/* back, initially hidden pane */
-.back {
+    transform-style: preserve-3d;
+    transition: transform .5s;
+  }
+  
+  .memory-card:active {
+    transform: scale(0.97);
+    transition: transform .2s;
+  }
+  
+  .memory-card.flip {
     transform: rotateY(180deg);
-    background-size: 150px 200px;
-}
+  }
+  
+  .front-face,
+  .back-face {
+    width: 100%;
+    height: 100%;
+    padding: -1px;
+    position: absolute;
+    border-radius: 12px;
+    background: #1C7CCC;
+    backface-visibility: hidden;
+  }
+  
+  .front-face {
+    transform: rotateY(180deg);
+
+  }
