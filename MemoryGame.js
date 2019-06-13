@@ -1,16 +1,3 @@
-function randomizeCards() {
-    let pokemon = ["Squirtle", "Squirtle", "Scyther", "Scyther", "Growlithe", "Growlithe", "Mewtwo", "Mewtwo", "Onix", "Onix", "Bulbasaur", "Bulbasaur"];
-    for (i = 1; i <= 12; i++) {
-        let pokemonCard = document.getElementById(`${i}`);
-        const pokemonArrayNum = Math.floor(Math.random() * (pokemon.length))
-        const pokemonForThisCard = pokemon.splice(pokemonArrayNum, 1);
-        pokemonCard.className += " " + pokemonForThisCard;
-        console.log(pokemonCard.className);
-    }
-}
-
-// randomizeCards();
-
 function startCountdown(seconds) {
     let counter = seconds;
 
@@ -107,64 +94,72 @@ function closeModal() {
 
 const cards = document.querySelectorAll('.memory-card');
 
-let hasFlippedCard = false;
-let lockBoard = false;
-let firstCard, secondCard;
 
-function flipCard() {
-  if (lockBoard) return;
-  if (this === firstCard) return;
+function startGame() {
+    const cards = document.querySelectorAll('.memory-card');
 
-  this.classList.add('flip');
+    let hasFlippedCard = false;
+    let lockBoard = false;
+    let firstCard, secondCard;
 
-  if (!hasFlippedCard) {
-    hasFlippedCard = true;
-    firstCard = this;
+    function flipCard() {
+        if (lockBoard) return;
+        if (this === firstCard) return;
+        
+        this.classList.add('flip');
 
-    return;
-  }
+        if (!hasFlippedCard) {
+            hasFlippedCard = true;
+            firstCard = this;
+        return;
+    }
 
-  secondCard = this;
-  checkForMatch();
-}
+    secondCard = this;
+    checkForMatch();
+    }
 
-function checkForMatch() {
-  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+    function checkForMatch() {
+    let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
 
-  isMatch ? disableCards() : unflipCards();
+    isMatch ? disableCards() : unflipCards();
 
-}
+    }
 
-function disableCards() {
-  firstCard.removeEventListener('click', flipCard);
-  secondCard.removeEventListener('click', flipCard);
-
-  resetBoard();
-
-}
-
-function unflipCards() {
-  lockBoard = true;
-
-  setTimeout(() => {
-    firstCard.classList.remove('flip');
-    secondCard.classList.remove('flip');
+    function disableCards() {
+    firstCard.removeEventListener('click', flipCard);
+    secondCard.removeEventListener('click', flipCard);
 
     resetBoard();
-  }, 1500);
-}
 
-function resetBoard() {
-  [hasFlippedCard, lockBoard] = [false, false];
-  [firstCard, secondCard] = [null, null];
-}
+    }
 
-(function shuffle() {
-  cards.forEach(card => {
-    let randomPos = Math.floor(Math.random() * 12);
-    card.style.order = randomPos;
-  });
-})();
+    function unflipCards() {
+    lockBoard = true;
 
-cards.forEach(card => card.addEventListener('click', flipCard));
+    setTimeout(() => {
+        firstCard.classList.remove('flip');
+        secondCard.classList.remove('flip');
 
+        resetBoard();
+    }, 700);
+    }
+
+    function resetBoard() {
+    [hasFlippedCard, lockBoard] = [false, false];
+    [firstCard, secondCard] = [null, null];
+    }
+
+    cards.forEach(card => card.classList.remove('flip'));
+
+    (function shuffle() {
+    cards.forEach(card => {
+        let randomPos = Math.floor(Math.random() * 12);
+        card.style.order = randomPos;
+    });
+    })();
+
+    cards.forEach(card => card.addEventListener('click', flipCard));
+    
+};
+
+startGame();
