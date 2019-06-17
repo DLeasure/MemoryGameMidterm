@@ -1,10 +1,17 @@
+let wonGame = false;
+let counter;
+
 function startCountdown(seconds) {
-    let counter = seconds;
+    counter = seconds;
 
     var interval = setInterval(() => {
-
         counter--;
         document.getElementById('timer').innerHTML = "0:" + seconds--;
+
+        if (wonGame === true) {
+            document.getElementById("timer").innerHTML = "You won!";
+            return;
+        }
 
         if (counter >= 10) {
             document.getElementById("timer").innerHTML = "0:" + counter;
@@ -17,39 +24,15 @@ function startCountdown(seconds) {
 
             clearInterval(interval);
             document.getElementById("timer").innerHTML = "GAME OVER!";
-
         };
     }, 1000);
 };
 
 
-// document.getElementById("timer").addEventListener("onclick", startCountdown(29));
-
 if (document.getElementById("timer") === "GAME OVER!") {
     alert("Sorry, you lost!");
 };
 
-/*
-
-FUNCTION FROM ADDRESS BOOK LAB THAT WILL GRAB WINNER 
-function display() {
-
-    let x = document.createElement("ul");
-
-    x.setAttribute("class", "contact-list");
-
-    let t = document.createElement("li");
-
-    let t1 = document.createTextNode("Name: " + document.getElementById('name').value);
-
-    t.appendChild(t1);
-
-   
-
-
-
-    x.appendChild(t);};}
-    */
 
 // Get the modal
 var modal = document.getElementById("myModal");
@@ -96,6 +79,8 @@ const cards = document.querySelectorAll('.memory-card');
 
 
 function startGame() {
+    wonGame = false;
+    let pokemonCardsMatched = 0;
     const cards = document.querySelectorAll('.memory-card');
 
     let hasFlippedCard = false;
@@ -119,43 +104,58 @@ function startGame() {
     }
 
     function checkForMatch() {
-    let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+        let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
 
-    isMatch ? disableCards() : unflipCards();
-
+        isMatch ? disableCards() : unflipCards();
     }
 
     function disableCards() {
-    firstCard.removeEventListener('click', flipCard);
-    secondCard.removeEventListener('click', flipCard);
-
-    resetBoard();
-
+        firstCard.removeEventListener('click', flipCard);
+        secondCard.removeEventListener('click', flipCard);
+        pokemonCardsMatched += 2;
+        if (pokemonCardsMatched < 12) {
+            resetBoard();
+        } else if (pokemonCardsMatched === 12) {
+            wonGame = true;            
+            const winTime = 30 - counter;
+            alert(`You won the game in ${winTime} seconds!`);
+            function addName() {
+                let x = prompt("name");
+                var node = document.createElement("LI");
+                var textnode = document.createTextNode(x + " " + winTime);
+                node.appendChild(textnode);
+                document.getElementById("leaders").appendChild(node);
+            }
+            addName();
+            resetBoard();
+            return;
+        }
+        
     }
 
     function unflipCards() {
-    lockBoard = true;
+        lockBoard = true;
 
-    setTimeout(() => {
-        firstCard.classList.remove('flip');
-        secondCard.classList.remove('flip');
+        setTimeout(() => {
+            firstCard.classList.remove('flip');
+            secondCard.classList.remove('flip');
 
-        resetBoard();
-    }, 700);
+            resetBoard();
+        }, 700);
     }
 
     function resetBoard() {
-    [hasFlippedCard, lockBoard] = [false, false];
-    [firstCard, secondCard] = [null, null];
+        [hasFlippedCard, lockBoard] = [false, false];
+        [firstCard, secondCard] = [null, null];
     }
 
     cards.forEach(card => card.classList.remove('flip'));
 
     (function shuffle() {
-    cards.forEach(card => {
-        let randomPos = Math.floor(Math.random() * 12);
-        card.style.order = randomPos;
-    });
+        cards.forEach(card => {
+            let randomPos = Math.floor(Math.random() * 12);
+            card.style.order = randomPos;
+        });
     })();
 
     cards.forEach(card => card.addEventListener('click', flipCard));
@@ -163,3 +163,4 @@ function startGame() {
 };
 
 startGame();
+
