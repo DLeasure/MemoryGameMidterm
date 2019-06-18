@@ -28,12 +28,6 @@ function startCountdown(seconds) {
     }, 1000);
 };
 
-
-if (document.getElementById("timer") === "GAME OVER!") {
-    alert("Sorry, you lost!");
-};
-
-
 // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -49,11 +43,11 @@ window.onload = function modalLoad() {
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-    startCountdown(30);
-    startGame();
-}
+// span.onclick = function() {
+//     modal.style.display = "none";
+//     startCountdown(30);
+//     startGame();
+// }
 
 
 // When the user clicks anywhere outside of the modal, close it
@@ -116,7 +110,7 @@ function startGame() {
         if (pokemonCardsMatched < 12) {
             resetBoard();
         } else if (pokemonCardsMatched === 12) {
-            wonGame = true;            
+            wonGame = true;
             const winTime = 30 - counter;
             alert(`You won the game in ${winTime} seconds!`);
             function addName() {
@@ -125,8 +119,10 @@ function startGame() {
                 var textnode = document.createTextNode(x + " " + winTime);
                 node.appendChild(textnode);
                 document.getElementById("leaders").appendChild(node);
-            }
+            
+            };
             addName();
+            document.querySelector(".leaderboard").style.display = "inline";
             resetBoard();
             return;
         }
@@ -162,5 +158,6 @@ function startGame() {
     
 };
 
-startGame();
 
+const resetButton = document.querySelector("#reset");
+resetButton.addEventListener("click", startGame, startCountdown(30));
