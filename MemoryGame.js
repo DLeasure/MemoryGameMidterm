@@ -43,11 +43,11 @@ window.onload = function modalLoad() {
 }
 
 // When the user clicks on <span> (x), close the modal
-// span.onclick = function() {
-//     modal.style.display = "none";
-//     startCountdown(30);
-//     startGame();
-// }
+span.onclick = function() {
+    modal.style.display = "none";
+    startCountdown(30);
+    startGame();
+}
 
 
 // When the user clicks anywhere outside of the modal, close it
