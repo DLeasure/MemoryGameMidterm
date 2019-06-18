@@ -90,8 +90,13 @@ body {
 
 /* The Modal (background) */
 
+p {
+    color: #FFCD00;
+    font-size: 30px;
+}
+
 .modal {
-    display: none;
+    display: block;
     /* Hidden by default */
     position: fixed;
     /* Stay in place */
