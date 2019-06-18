@@ -118,7 +118,6 @@ function startGame() {
         } else if (pokemonCardsMatched === 12) {
             wonGame = true;            
             const winTime = 30 - counter;
-            alert(`You won the game in ${winTime} seconds!`);
             function addName() {
                 let x = prompt("name");
                 var node = document.createElement("LI");
@@ -126,6 +125,7 @@ function startGame() {
                 node.appendChild(textnode);
                 document.getElementById("leaders").appendChild(node);
             }
+            alert("you won in " + winTime + " seconds");
             addName();
             resetBoard();
             return;
@@ -162,5 +162,5 @@ function startGame() {
     
 };
 
-startGame();
+
 
