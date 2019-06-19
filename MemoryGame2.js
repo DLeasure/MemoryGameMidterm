@@ -5,49 +5,53 @@ function startCountdown(seconds) {
     counter = seconds;
 
     var interval = setInterval(() => {
-        counter--;
-        document.getElementById("timer").innerHTML = "0:" + seconds--;
+        counter++;
+        document.getElementById('timer').innerHTML = "0:" + seconds++;
 
         if (wonGame === true) {
             document.getElementById("timer").innerHTML = "You won!";
-            clearInterval(interval);
             return;
-        } if (counter >= 10) {
+        }
+
+        if (counter >= 10) {
             document.getElementById("timer").innerHTML = "0:" + counter;
-        } if (counter <= 9 && counter > 0) {
+        }
+
+        if (counter <= 9 && counter > 0) {
             document.getElementById("timer").innerHTML = "0:0" + counter;
-        } if (counter === 0) {
-            document.getElementById("timer").innerHTML = "GAME OVER!";
+        };
+        if (counter === 0) {
+
             clearInterval(interval);
-            // break;
+            document.getElementById("timer").innerHTML = "GAME OVER!";
         };
     }, 1000);
 };
 
+
+
+
+
 // Get the modal
-const modal = document.getElementById("myModal");
+var modal = document.getElementById("myModal");
 
-// // Get the button that opens the modal
-const resetButton = document.querySelector("#reset");
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
 
-resetButton.addEventListener("click", function() {
-    modal.style.display = "block";
-});
-
-// Get the play element that closes the modal
-let playButton = document.querySelector("#close");
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal 
-// window.onload = function modalLoad() {
-//     modal.style.display = "block";
-// }
+window.onload = function modalLoad() {
+    modal.style.display = "block";
+}
 
 // When the user clicks on <span> (x), close the modal
-playButton.addEventListener("click", function() {
+span.onclick = function() {
     modal.style.display = "none";
-    startCountdown(30);
+    startCountdown(0);
     startGame();
-});
+}
 
 
 // When the user clicks anywhere outside of the modal, close it
@@ -57,17 +61,17 @@ window.onclick = function(event) {
     }
 }
 
-// function openModal() {
-//     $(document).ready(function() {
-//         $("#myModal").modal();
-//     });
-// }
+function openModal() {
+    $(document).ready(function() {
+        $("#myModal").modal();
+    });
+}
 
-// function closeModal() {
-//     $(document).ready(function() {
-//         $("#myModal").modal('hide');
-//     });
-// }
+function closeModal() {
+    $(document).ready(function() {
+        $("#myModal").modal('hide');
+    });
+}
 
 const cards = document.querySelectorAll('.memory-card');
 
@@ -107,22 +111,20 @@ function startGame() {
         firstCard.removeEventListener('click', flipCard);
         secondCard.removeEventListener('click', flipCard);
         pokemonCardsMatched += 2;
-        if (pokemonCardsMatched < 12) {
+        if (pokemonCardsMatched < 24) {
             resetBoard();
-        } else if (pokemonCardsMatched === 12) {
-            wonGame = true;
-            const winTime = 30 - counter;
-            alert(`You won the game in ${winTime} seconds!`);
+        } else if (pokemonCardsMatched === 24) {
+            wonGame = true;            
+            const winTime = counter;
             function addName() {
                 let x = prompt("name");
                 var node = document.createElement("LI");
                 var textnode = document.createTextNode(x + " " + winTime);
                 node.appendChild(textnode);
                 document.getElementById("leaders").appendChild(node);
-            
-            };
+            }
+            alert("you won in " + winTime + " seconds");
             addName();
-            document.querySelector(".leaderboard").style.display = "inline";
             resetBoard();
             return;
         }
@@ -149,11 +151,16 @@ function startGame() {
 
     (function shuffle() {
         cards.forEach(card => {
-            let randomPos = Math.floor(Math.random() * 12);
+            let randomPos = Math.floor(Math.random() * 24);
             card.style.order = randomPos;
         });
     })();
 
     cards.forEach(card => card.addEventListener('click', flipCard));
+    
 };
+
+disableCards();
+
+
 
