@@ -73,7 +73,6 @@ window.onclick = function(event) {
 
 const cards = document.querySelectorAll('.memory-card');
 
-
 function startGame() {
     wonGame = false;
     let pokemonCardsMatched = 0;
@@ -101,7 +100,6 @@ function startGame() {
 
     function checkForMatch() {
         let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
-
         isMatch ? disableCards() : unflipCards();
     }
 
@@ -133,7 +131,6 @@ function startGame() {
 
     function unflipCards() {
         lockBoard = true;
-
         setTimeout(() => {
             firstCard.classList.remove('flip');
             secondCard.classList.remove('flip');

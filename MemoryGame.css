@@ -1,3 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('background.jpg');
+    background-size: cover;
+    font-family: 'pokemon_solidnormal';
+    cursor: pointer;
+}
 
 body {
     margin: 0;
@@ -38,11 +46,13 @@ body {
     /* background: #0A4CA4;
     border: 8px groove #FFCD00; */
     border-radius: 10px;
+
 }
 
 #timer {
     color: #FFCD00;
     text-shadow: -3px -3px 0 #356ABD, 3px -3px 0 #356ABD, -3px 3px 0 #356ABD, 3px 3px 0 #356ABD;
+
     font-size: 40px;
     /* padding: 10px; */
     width: 25%;
@@ -116,6 +126,7 @@ p {
     /* Black w/ opacity */
     z-index: 1000;
 }
+
 /* Modal Content/Box */
 
 .modal-content {
@@ -129,6 +140,7 @@ p {
     /* Could be more or less,
      depending on screen size */
 }
+
 /* The Close Button */
 
 .close {
@@ -191,7 +203,7 @@ input {
     transform-style: preserve-3d;
     transition: transform .5s;
 }
-  
+
 .memory-card:active {
     transform: scale(0.97);
     transition: transform .2s;
@@ -200,7 +212,7 @@ input {
 .memory-card.flip {
     transform: rotateY(180deg);
 }
-  
+
 .front-face,
 .back-face {
     width: 100%;
