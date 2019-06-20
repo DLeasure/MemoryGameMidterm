@@ -110,8 +110,6 @@ function startGame() {
         secondCard.removeEventListener('click', flipCard);
         pokemonCardsMatched += 2;
         if (pokemonCardsMatched < 12) {
-            firstCard.style.visibility= "visible";
-            secondCard.style.visibility= "visible";
             resetBoard();
         } else if (pokemonCardsMatched === 12) {
             wonGame = true;
@@ -122,24 +120,12 @@ function startGame() {
                 var node = document.createElement("LI");
                 var textnode = document.createTextNode(x + " " + winTime);
                 node.appendChild(textnode);
-                /*
-                let currLeaderboard = localStorage.getItem('name', x);
-                currLeaderboard.push({
-                    textnode
-                })
-                localStorage.setItem('name', [{
-                    name: x,
-                    winTime: winTime
-                }]);
-                */
                 document.getElementById("leaders").appendChild(node);
             
             };
             addName();
             document.querySelector(".leaderboard").style.display = "inline";
             resetBoard();
-            firstCard.style.visibility= "visible";
-            secondCard.style.visibility= "visible";
             return;
         }
         
@@ -159,7 +145,6 @@ function startGame() {
     function resetBoard() {
         [hasFlippedCard, lockBoard] = [false, false];
         [firstCard, secondCard] = [null, null];
-        
     }
 
     cards.forEach(card => card.classList.remove('flip'));
@@ -172,4 +157,5 @@ function startGame() {
     })();
 
     cards.forEach(card => card.addEventListener('click', flipCard));
+    
 };

@@ -6,7 +6,9 @@ function startCountdown(seconds) {
 
     var interval = setInterval(() => {
         counter++;
-        document.getElementById('timer').innerHTML = "0:" + seconds++;
+        let minuteTimer = Math.floor(counter / 60);
+        let secondTimer = counter % 60;
+        // document.getElementById('timer').innerHTML = "0:" + seconds;
 
         if (wonGame === true) {
             document.getElementById("timer").innerHTML = "You won!";
@@ -14,11 +16,11 @@ function startCountdown(seconds) {
         }
 
         if (counter >= 10) {
-            document.getElementById("timer").innerHTML = "0:" + counter;
+            document.getElementById("timer").innerHTML = minuteTimer + ":" + secondTimer;
         }
 
-        if (counter <= 9 && counter > 0) {
-            document.getElementById("timer").innerHTML = "0:0" + counter;
+        if (secondTimer < 10 && secondTimer >= 0) {
+            document.getElementById("timer").innerHTML = minuteTimer + ":0" + secondTimer;
         };
         if (counter === 0) {
 
@@ -33,25 +35,31 @@ function startCountdown(seconds) {
 
 
 // Get the modal
-var modal = document.getElementById("myModal");
+const modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+// // Get the button that opens the modal
+const resetButton = document.querySelector("#reset");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+resetButton.addEventListener("click", function() {
+    modal.style.display = "block";
+});
+
+
+
+// Get the play element that closes the modal
+let playButton = document.querySelector("#close");
 
 // When the user clicks on the button, open the modal 
-window.onload = function modalLoad() {
-    modal.style.display = "block";
-}
+// window.onload = function modalLoad() {
+//     modal.style.display = "block";
+// }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+playButton.addEventListener("click", function() {
     modal.style.display = "none";
     startCountdown(0);
     startGame();
-}
+});
 
 
 // When the user clicks anywhere outside of the modal, close it
@@ -61,17 +69,17 @@ window.onclick = function(event) {
     }
 }
 
-function openModal() {
-    $(document).ready(function() {
-        $("#myModal").modal();
-    });
-}
+// function openModal() {
+//     $(document).ready(function() {
+//         $("#myModal").modal();
+//     });
+// }
 
-function closeModal() {
-    $(document).ready(function() {
-        $("#myModal").modal('hide');
-    });
-}
+// function closeModal() {
+//     $(document).ready(function() {
+//         $("#myModal").modal('hide');
+//     });
+// }
 
 const cards = document.querySelectorAll('.memory-card');
 
@@ -125,6 +133,7 @@ function startGame() {
             }
             alert("you won in " + winTime + " seconds");
             addName();
+            document.querySelector(".leaderboard").style.display = "inline";
             resetBoard();
             return;
         }
@@ -161,6 +170,4 @@ function startGame() {
 };
 
 disableCards();
-
-
 
