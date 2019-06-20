@@ -22,6 +22,17 @@ body {
     margin-bottom: -34px;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-top: 1px; */
+    background: #0A4CA4;
+    border: 8px groove #FFCD00;
+    /* border-radius: 10px; */
+    /* text-align: center; */
+}
+
 #title {
     /* width: 50%; */
     /* margin: 0; */
@@ -82,22 +93,9 @@ p {
     cursor: pointer;
 }
 
-#title {
-    height: 10%;
-    width: 20%;
-    margin: 0;
-}
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* margin-top: 1px; */
-    background: #0A4CA4;
-    border: 8px groove #FFCD00;
-    /* border-radius: 10px; */
-    /* text-align: center; */
-}
+
+
 /* The Modal (background) */
 
 .modal {
