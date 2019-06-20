@@ -34,6 +34,8 @@ resetButton.addEventListener("click", function() {
     modal.style.display = "block";
 });
 
+
+
 // Get the play element that closes the modal
 let playButton = document.querySelector("#close");
 
@@ -155,5 +157,6 @@ function startGame() {
     })();
 
     cards.forEach(card => card.addEventListener('click', flipCard));
+    
 };
 
