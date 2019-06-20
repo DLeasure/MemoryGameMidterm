@@ -57,7 +57,7 @@ let playButton = document.querySelector("#close");
 // When the user clicks on <span> (x), close the modal
 playButton.addEventListener("click", function() {
     modal.style.display = "none";
-    startCountdown(30);
+    startCountdown(0);
     startGame();
 });
 
