@@ -12,6 +12,7 @@ function startCountdown(seconds) {
 
         if (wonGame === true) {
             document.getElementById("timer").innerHTML = "You won!";
+            clearInterval(interval);
             return;
         }
 
@@ -22,11 +23,11 @@ function startCountdown(seconds) {
         if (secondTimer < 10 && secondTimer >= 0) {
             document.getElementById("timer").innerHTML = minuteTimer + ":0" + secondTimer;
         };
-        if (counter === 0) {
+        // if (counter === 0) {
 
-            clearInterval(interval);
-            document.getElementById("timer").innerHTML = "GAME OVER!";
-        };
+        //     clearInterval(interval);
+        //     document.getElementById("timer").innerHTML = "GAME OVER!";
+        // };
     }, 1000);
 };
 
@@ -122,7 +123,7 @@ function startGame() {
         if (pokemonCardsMatched < 24) {
             resetBoard();
         } else if (pokemonCardsMatched === 24) {
-            wonGame = true;            
+            wonGame = true;
             const winTime = counter;
             function addName() {
                 let x = prompt("name");
