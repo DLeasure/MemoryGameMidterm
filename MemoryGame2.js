@@ -5,24 +5,34 @@ function startCountdown(seconds) {
     counter = seconds;
 
     var interval = setInterval(() => {
-        counter--;
-        document.getElementById("timer").innerHTML = "0:" + seconds--;
+        counter++;
+        let minuteTimer = Math.floor(counter / 60);
+        let secondTimer = counter % 60;
+        // document.getElementById('timer').innerHTML = "0:" + seconds;
 
         if (wonGame === true) {
             document.getElementById("timer").innerHTML = "You won!";
-            clearInterval(interval);
             return;
-        } if (counter >= 10) {
-            document.getElementById("timer").innerHTML = "0:" + counter;
-        } if (counter <= 9 && counter > 0) {
-            document.getElementById("timer").innerHTML = "0:0" + counter;
-        } if (counter === 0) {
-            document.getElementById("timer").innerHTML = "GAME OVER!";
+        }
+
+        if (counter >= 10) {
+            document.getElementById("timer").innerHTML = minuteTimer + ":" + secondTimer;
+        }
+
+        if (secondTimer < 10 && secondTimer >= 0) {
+            document.getElementById("timer").innerHTML = minuteTimer + ":0" + secondTimer;
+        };
+        if (counter === 0) {
+
             clearInterval(interval);
-            // break;
+            document.getElementById("timer").innerHTML = "GAME OVER!";
         };
     }, 1000);
 };
+
+
+
+
 
 // Get the modal
 const modal = document.getElementById("myModal");
@@ -47,7 +57,7 @@ let playButton = document.querySelector("#close");
 // When the user clicks on <span> (x), close the modal
 playButton.addEventListener("click", function() {
     modal.style.display = "none";
-    startCountdown(30);
+    startCountdown(0);
     startGame();
 });
 
@@ -72,6 +82,7 @@ window.onclick = function(event) {
 // }
 
 const cards = document.querySelectorAll('.memory-card');
+
 
 function startGame() {
     wonGame = false;
@@ -100,6 +111,7 @@ function startGame() {
 
     function checkForMatch() {
         let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+
         isMatch ? disableCards() : unflipCards();
     }
 
@@ -107,20 +119,19 @@ function startGame() {
         firstCard.removeEventListener('click', flipCard);
         secondCard.removeEventListener('click', flipCard);
         pokemonCardsMatched += 2;
-        if (pokemonCardsMatched < 12) {
+        if (pokemonCardsMatched < 24) {
             resetBoard();
-        } else if (pokemonCardsMatched === 12) {
-            wonGame = true;
-            const winTime = 30 - counter;
-            alert(`You won the game in ${winTime} seconds!`);
+        } else if (pokemonCardsMatched === 24) {
+            wonGame = true;            
+            const winTime = counter;
             function addName() {
                 let x = prompt("name");
                 var node = document.createElement("LI");
                 var textnode = document.createTextNode(x + " " + winTime);
                 node.appendChild(textnode);
                 document.getElementById("leaders").appendChild(node);
-            
-            };
+            }
+            alert("you won in " + winTime + " seconds");
             addName();
             document.querySelector(".leaderboard").style.display = "inline";
             resetBoard();
@@ -131,6 +142,7 @@ function startGame() {
 
     function unflipCards() {
         lockBoard = true;
+
         setTimeout(() => {
             firstCard.classList.remove('flip');
             secondCard.classList.remove('flip');
@@ -148,7 +160,7 @@ function startGame() {
 
     (function shuffle() {
         cards.forEach(card => {
-            let randomPos = Math.floor(Math.random() * 12);
+            let randomPos = Math.floor(Math.random() * 24);
             card.style.order = randomPos;
         });
     })();
@@ -156,4 +168,8 @@ function startGame() {
     cards.forEach(card => card.addEventListener('click', flipCard));
     
 };
+
+disableCards();
+
+
 
