@@ -46,13 +46,11 @@ body {
     /* background: #0A4CA4;
     border: 8px groove #FFCD00; */
     border-radius: 10px;
-
 }
 
 #timer {
     color: #FFCD00;
     text-shadow: -3px -3px 0 #356ABD, 3px -3px 0 #356ABD, -3px 3px 0 #356ABD, 3px 3px 0 #356ABD;
-
     font-size: 40px;
     /* padding: 10px; */
     width: 25%;
@@ -98,6 +96,7 @@ body {
     cursor: pointer;
 }
 
+
 /* The Modal (background) */
 
 p {
@@ -127,6 +126,7 @@ p {
     z-index: 1000;
 }
 
+
 /* Modal Content/Box */
 
 .modal-content {
@@ -140,6 +140,7 @@ p {
     /* Could be more or less,
      depending on screen size */
 }
+
 
 /* The Close Button */
 
@@ -194,7 +195,7 @@ input {
     border: 7px groove #FFCD00;
     padding: 5px;
 }
-  
+
 .memory-card {
     width: 140px;
     height: 175px;
@@ -208,7 +209,7 @@ input {
     transform: scale(0.97);
     transition: transform .2s;
 }
-  
+
 .memory-card.flip {
     transform: rotateY(180deg);
 }
@@ -224,7 +225,7 @@ input {
     backface-visibility: hidden;
     border: 1px groove #FFCD00;
 }
-  
+
 .front-face {
     transform: rotateY(180deg);
 }

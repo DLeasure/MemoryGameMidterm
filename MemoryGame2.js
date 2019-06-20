@@ -104,11 +104,11 @@ function startGame() {
             hasFlippedCard = true;
             firstCard = this;
         return;
-    }
+        };
 
-    secondCard = this;
-    checkForMatch();
-    }
+        secondCard = this;
+        checkForMatch();
+    };
 
     function checkForMatch() {
         let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
@@ -170,7 +170,7 @@ function startGame() {
     
 };
 
-disableCards();
+// disableCards();
 
 
 
