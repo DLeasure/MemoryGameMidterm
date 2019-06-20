@@ -141,6 +141,10 @@ p {
      depending on screen size */
 }
 
+.beast {
+    border: none;
+}
+
 
 /* The Close Button */
 
